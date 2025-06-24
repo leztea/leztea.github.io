@@ -160,6 +160,9 @@
   }
 }
 @layer utilities {
+  .visible {
+    visibility: visible;
+  }
   .container {
     width: 100%;
     @media (width >= 40rem) {
@@ -476,8 +479,8 @@
         /* 100% Stamp/Sticker - Yellow Transparent Stamp */
         .percent-stamp {
             position: absolute;
-            top: 12%;
-            right: 8%;
+            top: 4%; /* Moved from 12% to 4% to position it higher */
+            left: -25px; /* Partially off screen for emphasis */
             transform: rotate(-12deg);
             width: 130px;
             height: 130px;
@@ -937,7 +940,7 @@
 
         .tea-products {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 40px;
             padding: 0 10px;
         }
@@ -979,7 +982,8 @@
         .tea-image img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
+            background-color: white;
             transition: all 0.7s ease;
         }
 
@@ -1311,8 +1315,8 @@
             }
             
             .percent-stamp {
-                top: 5%;
-                right: 5%;
+                top: 2%; /* Moved from 5% to 2% to position it higher on mobile */
+                left: -15px; /* Partially off screen for emphasis on mobile */
                 width: 90px;
                 height: 90px;
                 font-size: 22px;
@@ -1366,7 +1370,7 @@
     <div class="loading-screen hidden" id="loadingScreen">
         <!-- Tea Pouring Video from Streamable -->
         <video class="loading-video video-phase-1 fade-out" id="loadingVideo" autoplay="" muted="">
-            <source src="https://cdn-cf-east.streamable.com/video/mp4/sjcabt.mp4" type="video/mp4">
+            <source src="vid.mp4" type="video/mp4">
             <!-- Fallback for browser compatibility -->
         </video>
         
@@ -1413,7 +1417,7 @@
     </nav>
 
     <!-- Interactive Hero Section -->
-    <section id="home" class="hero" style="--mouse-x: 60.256410256410255%; --mouse-y: 0%;">
+    <section id="home" class="hero" style="--mouse-x: 97.43589743589743%; --mouse-y: 4.067796610169491%;">
         <!-- Background Video - Using a reliable source -->
         <video class="hero-video" autoplay="" muted="" loop="" playsinline="">
             <source src="vid.mp4" type="video/mp4">
@@ -1427,7 +1431,7 @@
         <div class="plant-decoration elephant-ear top-right"></div>
         <div class="plant-decoration spider-plant bottom-right"></div>
         
-        <div class="hero-content">
+        <div class="hero-content" style="transform: translateY(0px);">
             <div class="hero-subtitle">Baltimore's Best Tea</div>
             <h1 class="hero-title" style="transform: scale(1); color: white;">Tea &amp; Lemonades</h1>
             <!-- 100% Stamp -->
@@ -1438,13 +1442,13 @@
         </div>
 
         <!-- Interactive Click Elements -->
-        <div class="click-ripple" id="clickRipple"></div>
+        <div class="click-ripple" id="clickRipple" style="height: 60px; width: 60px; left: 647px; top: 218px; transform: scale(0); opacity: 1; animation: 0.6s linear 0s 1 normal none running ripple;"></div>
     </section>
 
 
 
     <!-- Custom Cursor -->
-    <div class="custom-cursor" style="left: 225px; top: -10px; opacity: 0;"></div>
+    <div class="custom-cursor" style="left: 370px; top: 14px; opacity: 0;"></div>
 
     <!-- Plant Accents -->
     <div class="plant-accent"></div>
@@ -1455,120 +1459,86 @@
         <div class="plant-decoration elephant-ear top-right"></div>
         <div class="plant-decoration spider-plant top-left"></div>
         <div class="container">
-            <div class="section-header fade-in">
+            <div class="section-header fade-in visible">
                 <h2 class="serif">Our Menu</h2>
-                <p>Explore our carefully crafted selection of premium teas, lemonades, and boba drinks.</p>
+                <p>Explore our carefully curated selection of premium teas, refreshing lemonades, and innovative boba creations.</p>
             </div>
             
-            <div class="tea-collection fade-in">
+            <div class="tea-collection fade-in visible">
                 <div class="tea-categories">
+                    <div class="tea-category" data-category="all">All</div>
                     <div class="tea-category" data-category="tea">Teas</div>
                     <div class="tea-category" data-category="lemonade">Lemonades</div>
                     <div class="tea-category active" data-category="boba">Boba</div>
-                    <div class="tea-category" data-category="coming-soon">Coming Soon</div>
                 </div>
                 
-                <div class="tea-products" id="tea-products">
+                <div class="tea-products" id="tea-products" style="opacity: 1; transform: translateY(0px);">
                     <!-- Teas Category -->
                     <div class="tea-product" data-type="tea" style="display: none;">
                         <div class="tea-image">
-                            <img src="https://via.placeholder.com/400x240/8b4513/ffffff?text=Black+Tea" alt="Black Tea">
+                            <img src="https://public.youware.com/users-website-assets/prod/e527ff6c-26c9-4659-988d-4d2e86b6ff41/98e93dc7544045a4b738a3e92444edab.png" alt="Black Tea">
                         </div>
                         <div class="tea-info">
                             <h3 class="tea-name">Black Tea</h3>
                             <p class="tea-description">Rich and robust black tea blend perfect for starting your day with energy.</p>
-                            <div class="tea-price">$5.95</div>
+                            <div class="tea-price">$5.00</div>
                         </div>
                     </div>
                     
                     <div class="tea-product" data-type="tea" style="display: none;">
                         <div class="tea-image">
-                            <img src="https://via.placeholder.com/400x240/90ee90/2f4f3f?text=Green+Tea" alt="Green Tea">
+                            <img src="https://public.youware.com/users-website-assets/prod/e527ff6c-26c9-4659-988d-4d2e86b6ff41/3a45b902a8f7438494bb96e74411c9f0.png" alt="Green Tea">
                         </div>
                         <div class="tea-info">
                             <h3 class="tea-name">Green Tea</h3>
                             <p class="tea-description">Delicate green tea with natural antioxidants. Light and refreshing for any time of day.</p>
-                            <div class="tea-price">$5.95</div>
+                            <div class="tea-price">$5.00</div>
                         </div>
                     </div>
                     
                     <!-- Lemonades Category -->
                     <div class="tea-product" data-type="lemonade" style="display: none;">
                         <div class="tea-image">
-                            <img src="https://via.placeholder.com/400x240/d3f8d3/2f4f3f?text=Green+Tea+Lemonade" alt="Green Tea Lemonade">
+                            <img src="https://public.youware.com/users-website-assets/prod/e527ff6c-26c9-4659-988d-4d2e86b6ff41/7a51054bbf4543778305ea2d1abc7367.png" alt="Peach Green Tea Lemonade">
                         </div>
                         <div class="tea-info">
-                            <h3 class="tea-name">Green Tea Lemonade</h3>
-                            <p class="tea-description">A refreshing blend of fresh lemonade with green tea. The perfect balance of sweet and earthy.</p>
-                            <div class="tea-price">$6.50</div>
+                            <h3 class="tea-name">Peach Green Tea Lemonade</h3>
+                            <p class="tea-description">A perfect trio of sweet peach, refreshing green tea, and tart lemonade. Our signature drink.</p>
+                            <div class="tea-price">$6.00</div>
                         </div>
                     </div>
                     
                     <div class="tea-product" data-type="lemonade" style="display: none;">
                         <div class="tea-image">
-                            <img src="https://via.placeholder.com/400x240/fff8dc/f9c22e?text=Lemonade" alt="Lemonade">
+                            <img src="https://public.youware.com/users-website-assets/prod/e527ff6c-26c9-4659-988d-4d2e86b6ff41/f63b2cfd212f4497a3d080bef4791af6.png" alt="Lemonade">
                         </div>
                         <div class="tea-info">
                             <h3 class="tea-name">Lemonade</h3>
                             <p class="tea-description">Classic fresh-squeezed lemonade made with real lemons. Sweet, tart, and refreshing.</p>
-                            <div class="tea-price">$5.50</div>
+                            <div class="tea-price">$5.00</div>
+                        </div>
+                    </div>
+                    
+                    <div class="tea-product" data-type="boba" style="display: block;">
+                        <div class="tea-image">
+                            <img src="https://public.youware.com/users-website-assets/prod/e527ff6c-26c9-4659-988d-4d2e86b6ff41/d6abaf072ad8459b933c57eb36becf61.png" alt="Strawberry Boba">
+                        </div>
+                        <div class="tea-info">
+                            <h3 class="tea-name">Strawberry Boba</h3>
+                            <p class="tea-description">Sweet strawberry flavor with chewy tapioca pearls. A refreshing and fruity treat.</p>
+                            <div class="tea-price">$6.00</div>
                         </div>
                     </div>
                     
                     <!-- Boba Category -->
-                    <div class="tea-product" data-type="boba">
+                    <div class="tea-product" data-type="boba" style="display: block;">
                         <div class="tea-image">
-                            <img src="https://via.placeholder.com/400x240/ffb6c1/8b0000?text=Strawberry+Boba" alt="Strawberry Boba">
-                        </div>
-                        <div class="tea-info">
-                            <h3 class="tea-name">Strawberry Boba</h3>
-                            <p class="tea-description">Sweet strawberry flavor mixed with lemonade and chewy tapioca pearls. A refreshing treat.</p>
-                            <div class="tea-price">$7.50</div>
-                        </div>
-                    </div>
-                    
-                    <div class="tea-product" data-type="boba">
-                        <div class="tea-image">
-                            <img src="https://via.placeholder.com/400x240/add8e6/00008b?text=Blueberry+Boba" alt="Blueberry Boba">
+                            <img src="https://public.youware.com/users-website-assets/prod/e527ff6c-26c9-4659-988d-4d2e86b6ff41/a33ce1678dd74481982c9508e10d1dec.png" alt="Blueberry Boba">
                         </div>
                         <div class="tea-info">
                             <h3 class="tea-name">Blueberry Boba</h3>
-                            <p class="tea-description">Vibrant blueberry flavor mixed with lemonade and chewy tapioca pearls. Sweet and tangy.</p>
-                            <div class="tea-price">$7.50</div>
-                        </div>
-                    </div>
-                    
-                    <div class="tea-product" data-type="boba">
-                        <div class="tea-image">
-                            <img src="https://via.placeholder.com/400x240/ffd700/ff8c00?text=Mango+Boba" alt="Mango Boba">
-                        </div>
-                        <div class="tea-info">
-                            <h3 class="tea-name">Mango Boba</h3>
-                            <p class="tea-description">Tropical mango flavor mixed with lemonade and chewy tapioca pearls. A taste of paradise.</p>
-                            <div class="tea-price">$7.50</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Coming Soon Category -->
-                    <div class="tea-product" data-type="coming-soon" style="display: none;">
-                        <div class="tea-image">
-                            <img src="https://via.placeholder.com/400x240/ffdab9/ff6347?text=Coming+Soon" alt="Peach Green Tea Lemonade">
-                        </div>
-                        <div class="tea-info">
-                            <h3 class="tea-name">Peach Green Tea Lemonade</h3>
-                            <p class="tea-description">Coming soon! A perfect trio of sweet peach, refreshing green tea, and tart lemonade.</p>
-                            <div class="tea-price">Coming Soon</div>
-                        </div>
-                    </div>
-                    
-                    <div class="tea-product" data-type="coming-soon" style="display: none;">
-                        <div class="tea-image">
-                            <img src="https://via.placeholder.com/400x240/ffdab9/ff8c00?text=Coming+Soon" alt="Peach Lemonade">
-                        </div>
-                        <div class="tea-info">
-                            <h3 class="tea-name">Peach Lemonade</h3>
-                            <p class="tea-description">Coming soon! Fresh squeezed lemonade with ripe peach essence. The perfect summer refresher.</p>
-                            <div class="tea-price">Coming Soon</div>
+                            <p class="tea-description">Vibrant blueberry flavor with chewy tapioca pearls. Sweet and refreshing.</p>
+                            <div class="tea-price">$6.00</div>
                         </div>
                     </div>
                 </div>
@@ -1582,26 +1552,26 @@
     <!-- About Section -->
     <section id="about" class="section" style="background: var(--bg-soft);">
         <div class="container">
-            <div class="section-header fade-in">
+            <div class="section-header fade-in visible">
                 <h2 class="serif">Our Story</h2>
                 <p>Founded in Baltimore with a passion for exceptional tea, we've grown into the city's premier destination for artisanal teas and innovative tea experiences.</p>
             </div>
             
             <div style="max-width: 800px; margin: 0 auto; text-align: center;">
                 <!-- Logo Image in About Section -->
-                <div style="margin: 0 auto 40px; max-width: 200px;" class="fade-in">
+                <div style="margin: 0 auto 40px; max-width: 200px;" class="fade-in visible">
                     <img src="logo.png" alt="Lez Tea Logo" style="width: 100%; border-radius: 50%; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
                 </div>
                 
-                <div style="font-size: 18px; line-height: 1.8; color: var(--text-light); margin-bottom: 40px;" class="fade-in">
-                    What started as a love for traditional tea culture has evolved into Baltimore's most innovative tea experience. We combine time-honored brewing techniques with modern convenience, bringing you the finest teas from around the world right to your doorstep.
+                <div style="font-size: 18px; line-height: 1.8; color: var(--text-light); margin-bottom: 40px;" class="fade-in visible">
+                    It all started during COVID when a few friends gathered at my home. I served my homemade teas, and when one friend eagerly ran to get more from the counter, everyone was amazed by the flavor. That spontaneous moment of joy during a difficult time sparked something special.
                 </div>
                 
-                <div style="font-size: 18px; line-height: 1.8; color: var(--text-light); margin-bottom: 50px;" class="fade-in">
-                    Every cup we serve represents our commitment to quality, sustainability, and community. From our carefully curated selection to our personalized service, we're dedicated to making every tea moment extraordinary.
+                <div style="font-size: 18px; line-height: 1.8; color: var(--text-light); margin-bottom: 50px;" class="fade-in visible">
+                    Word spread quickly, and what began as sharing tea with friends soon blossomed into a passion-driven business. So many people fell in love with our unique blends that it was clear this was meant to be shared with all of Baltimore. Every cup we serve today carries that same magic from that first gathering – bringing people together through exceptional tea experiences.
                 </div>
                 
-                <a href="#contact" style="background: var(--primary); color: white; padding: 16px 32px; text-decoration: none; font-size: 14px; font-weight: 400; letter-spacing: 1px; text-transform: uppercase; transition: all 0.3s ease;" class="fade-in">Learn More About Us</a>
+                <a href="#contact" style="background: var(--primary); color: white; padding: 16px 32px; text-decoration: none; font-size: 14px; font-weight: 400; letter-spacing: 1px; text-transform: uppercase; transition: all 0.3s ease;" class="fade-in visible">Learn More About Us</a>
             </div>
         </div>
     </section>
@@ -1609,18 +1579,18 @@
     <!-- Simplified Contact Section -->
     <section id="contact" class="section">
         <div class="container">
-            <div class="section-header fade-in">
+            <div class="section-header fade-in visible">
                 <h2 class="serif">Contact Us</h2>
                 <p>Ready to experience Baltimore's best tea? Reach out to us directly.</p>
             </div>
             
-            <div class="contact-info fade-in" style="max-width: 600px; margin: 60px auto; text-align: center;">
+            <div class="contact-info fade-in visible" style="max-width: 600px; margin: 60px auto; text-align: center;">
                 <div class="contact-card" style="background: white; padding: 50px; border-radius: 10px; box-shadow: 0 15px 35px rgba(0,0,0,0.05);">
                     <div style="font-size: 36px; margin-bottom: 30px; color: var(--primary);">
                         <i class="fa fa-phone"></i>
                     </div>
                     <h3 style="font-size: 24px; margin-bottom: 20px; font-family: var(--font-serif); color: var(--text);">Call or Text</h3>
-                    <p style="font-size: 20px; color: var(--primary); font-weight: 500; margin-bottom: 30px;">(555) 832-5683</p>
+                    <p style="font-size: 20px; color: var(--primary); font-weight: 500; margin-bottom: 30px;">(443) 756-8916</p>
                     
                     <div style="width: 80px; height: 1px; background: var(--border); margin: 30px auto;"></div>
                     
@@ -1635,7 +1605,8 @@
             
             <div style="text-align: center; margin-top: 40px; color: var(--text-light);">
                 <p style="margin-bottom: 10px;"><strong>Location:</strong> Baltimore, MD</p>
-                <p><strong>Hours:</strong> Mon-Fri 8AM-6PM, Sat 9AM-4PM</p>
+                <p style="margin-bottom: 10px;"><strong>Large Orders:</strong> Please provide 24 hours notice</p>
+                <p><strong>Catering Available:</strong> Contact us for special events and gatherings</p>
             </div>
         </div>
     </section>
@@ -1842,7 +1813,7 @@
                 setTimeout(() => {
                     // Filter products
                     teaProducts.forEach(product => {
-                        if (product.getAttribute('data-type') === selectedCategory) {
+                        if (selectedCategory === 'all' || product.getAttribute('data-type') === selectedCategory) {
                             product.style.display = 'block';
                         } else {
                             product.style.display = 'none';
