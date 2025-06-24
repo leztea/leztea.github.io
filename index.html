@@ -1,8 +1,191 @@
 <html lang="en"><head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Lez Tea · Baltimore's Best Artisanal Teas &amp; Lemonades</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script><style>/*! tailwindcss v4.1.10 | MIT License | https://tailwindcss.com */
+@layer theme, base, components, utilities;
+@layer theme {
+  :root, :host {
+    --font-sans: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+    'Noto Color Emoji';
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+    monospace;
+    --default-font-family: var(--font-sans);
+    --default-mono-font-family: var(--font-mono);
+  }
+}
+@layer base {
+  *, ::after, ::before, ::backdrop, ::file-selector-button {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0 solid;
+  }
+  html, :host {
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
+    tab-size: 4;
+    font-family: var(--default-font-family, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji');
+    font-feature-settings: var(--default-font-feature-settings, normal);
+    font-variation-settings: var(--default-font-variation-settings, normal);
+    -webkit-tap-highlight-color: transparent;
+  }
+  hr {
+    height: 0;
+    color: inherit;
+    border-top-width: 1px;
+  }
+  abbr:where([title]) {
+    -webkit-text-decoration: underline dotted;
+    text-decoration: underline dotted;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-size: inherit;
+    font-weight: inherit;
+  }
+  a {
+    color: inherit;
+    -webkit-text-decoration: inherit;
+    text-decoration: inherit;
+  }
+  b, strong {
+    font-weight: bolder;
+  }
+  code, kbd, samp, pre {
+    font-family: var(--default-mono-font-family, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace);
+    font-feature-settings: var(--default-mono-font-feature-settings, normal);
+    font-variation-settings: var(--default-mono-font-variation-settings, normal);
+    font-size: 1em;
+  }
+  small {
+    font-size: 80%;
+  }
+  sub, sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
+  sub {
+    bottom: -0.25em;
+  }
+  sup {
+    top: -0.5em;
+  }
+  table {
+    text-indent: 0;
+    border-color: inherit;
+    border-collapse: collapse;
+  }
+  :-moz-focusring {
+    outline: auto;
+  }
+  progress {
+    vertical-align: baseline;
+  }
+  summary {
+    display: list-item;
+  }
+  ol, ul, menu {
+    list-style: none;
+  }
+  img, svg, video, canvas, audio, iframe, embed, object {
+    display: block;
+    vertical-align: middle;
+  }
+  img, video {
+    max-width: 100%;
+    height: auto;
+  }
+  button, input, select, optgroup, textarea, ::file-selector-button {
+    font: inherit;
+    font-feature-settings: inherit;
+    font-variation-settings: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+    border-radius: 0;
+    background-color: transparent;
+    opacity: 1;
+  }
+  :where(select:is([multiple], [size])) optgroup {
+    font-weight: bolder;
+  }
+  :where(select:is([multiple], [size])) optgroup option {
+    padding-inline-start: 20px;
+  }
+  ::file-selector-button {
+    margin-inline-end: 4px;
+  }
+  ::placeholder {
+    opacity: 1;
+  }
+  @supports (not (-webkit-appearance: -apple-pay-button))  or (contain-intrinsic-size: 1px) {
+    ::placeholder {
+      color: currentcolor;
+      @supports (color: color-mix(in lab, red, red)) {
+        color: color-mix(in oklab, currentcolor 50%, transparent);
+      }
+    }
+  }
+  textarea {
+    resize: vertical;
+  }
+  ::-webkit-search-decoration {
+    -webkit-appearance: none;
+  }
+  ::-webkit-date-and-time-value {
+    min-height: 1lh;
+    text-align: inherit;
+  }
+  ::-webkit-datetime-edit {
+    display: inline-flex;
+  }
+  ::-webkit-datetime-edit-fields-wrapper {
+    padding: 0;
+  }
+  ::-webkit-datetime-edit, ::-webkit-datetime-edit-year-field, ::-webkit-datetime-edit-month-field, ::-webkit-datetime-edit-day-field, ::-webkit-datetime-edit-hour-field, ::-webkit-datetime-edit-minute-field, ::-webkit-datetime-edit-second-field, ::-webkit-datetime-edit-millisecond-field, ::-webkit-datetime-edit-meridiem-field {
+    padding-block: 0;
+  }
+  :-moz-ui-invalid {
+    box-shadow: none;
+  }
+  button, input:where([type='button'], [type='reset'], [type='submit']), ::file-selector-button {
+    appearance: button;
+  }
+  ::-webkit-inner-spin-button, ::-webkit-outer-spin-button {
+    height: auto;
+  }
+  [hidden]:where(:not([hidden='until-found'])) {
+    display: none !important;
+  }
+}
+@layer utilities {
+  .visible {
+    visibility: visible;
+  }
+  .container {
+    width: 100%;
+    @media (width >= 40rem) {
+      max-width: 40rem;
+    }
+    @media (width >= 48rem) {
+      max-width: 48rem;
+    }
+    @media (width >= 64rem) {
+      max-width: 64rem;
+    }
+    @media (width >= 80rem) {
+      max-width: 80rem;
+    }
+    @media (width >= 96rem) {
+      max-width: 96rem;
+    }
+  }
+  .hidden {
+    display: none;
+  }
+}
+</style><style>/*! tailwindcss v4.1.10 | MIT License | https://tailwindcss.com */
 @layer theme, base, components, utilities;
 @layer theme {
   :root, :host {
@@ -203,6 +386,20 @@
             --border: #E8E8E8;
             --font-cursive: 'Great Vibes', cursive;
         }
+        
+        /* Mobile-specific colors for better appearance */
+        @media (max-width: 768px) {
+            :root {
+                --primary: #2F4F3F;
+                --secondary: #3B5F53;
+                --accent: #F2C94C;
+                --text: #222222;
+                --text-light: #555555;
+                --bg: #FFFFFF;
+                --bg-soft: #F8F8F8;
+                --border: #EEEEEE;
+            }
+        }
 
         * {
             margin: 0;
@@ -237,6 +434,7 @@
             background: #000000;
             z-index: 10000;
             transition: opacity 1s ease, visibility 1s ease;
+            display: none; /* Hide loading screen by default - will help mobile performance */
         }
 
         .loading-screen.hidden {
@@ -455,6 +653,7 @@
         /* Interactive Hero Section with Video Background */
         .hero {
             height: 100vh;
+            min-height: 500px; /* Ensure minimum height for smaller screens */
             position: relative;
             display: flex;
             align-items: center;
@@ -581,6 +780,10 @@
             padding: 0 50px;
             position: relative;
             z-index: 4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
         .hero-subtitle {
@@ -733,6 +936,13 @@
             z-index: 9999;
             transition: all 0.1s ease;
             mix-blend-mode: difference;
+            display: none; /* Hide by default and show only on desktop */
+        }
+        
+        @media (min-width: 769px) {
+            .custom-cursor {
+                display: block; /* Only show custom cursor on desktop */
+            }
         }
 
         /* Click Ripple Effect */
@@ -923,6 +1133,7 @@
             color: var(--text-light);
             position: relative;
             text-transform: uppercase;
+            touch-action: manipulation; /* Improve touch behavior */
         }
 
         .tea-category.active {
@@ -1123,6 +1334,8 @@
             position: relative;
             cursor: pointer;
             z-index: 1001;
+            padding: 15px; /* Larger touch target */
+            margin: -15px; /* Offset padding to maintain visual size */
         }
 
         .hamburger span {
@@ -1186,6 +1399,8 @@
             transform: translateY(-100%);
             transition: transform 0.4s ease;
             backdrop-filter: blur(10px);
+            overflow-y: auto; /* Allow scrolling on very small screens */
+            padding: 70px 0 30px; /* Space for fixed header and bottom */
         }
 
         .mobile-menu.open {
@@ -1197,6 +1412,8 @@
             flex-direction: column;
             align-items: center;
             gap: 30px;
+            width: 100%;
+            padding: 20px;
         }
 
         .mobile-menu-link {
@@ -1208,10 +1425,19 @@
             text-transform: uppercase;
             position: relative;
             transition: all 0.3s ease;
+            padding: 10px 20px; /* Larger touch target */
+            width: 100%;
+            text-align: center;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .mobile-menu-link:last-child {
+            border-bottom: none;
         }
 
         .mobile-menu-link:hover {
             color: var(--primary);
+            background-color: rgba(47, 79, 63, 0.05);
         }
 
         .mobile-cta {
@@ -1232,10 +1458,23 @@
             background: var(--secondary);
         }
 
-        /* Mobile Responsive */
+        /* Mobile-First Responsive Design */
         @media (max-width: 768px) {
+            /* Main Navigation - Hide on scroll down, show on scroll up */
+            body {
+                padding-bottom: 60px; /* Space for bottom navigation */
+            }
+            
             .nav {
-                padding: 12px 0;
+                padding: 10px 0;
+                height: 60px;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                background: white;
+                transition: transform 0.3s ease;
+            }
+            
+            .nav.hidden {
+                transform: translateY(-100%);
             }
 
             .nav-menu {
@@ -1243,97 +1482,638 @@
             }
 
             .hamburger {
-                display: block;
+                display: none; /* Hide hamburger in favor of bottom nav */
             }
 
             .nav-content {
-                padding: 0 20px;
+                padding: 0 15px;
+                display: flex;
+                justify-content: center; /* Center the logo */
             }
 
             .nav-logo {
-                left: 20px;
-                top: 5px;
+                position: relative;
+                left: 0;
+                top: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
 
             .nav-logo img {
-                height: 90px; /* Increased from 75px to 90px */
-                width: 90px; /* Increased from 75px to 90px */
+                height: 50px;
+                width: 50px;
+                box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+                animation: none; /* Remove rotation on mobile */
+            }
+            
+            /* Bottom Navigation Bar - Mobile App Style */
+            .bottom-nav {
+                display: flex;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 60px;
+                background: white;
+                box-shadow: 0 -2px 10px rgba(0,0,0,0.08);
+                z-index: 1000;
+                justify-content: space-around;
+                align-items: center;
+                padding: 0 10px;
+            }
+            
+            .bottom-nav-item {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-decoration: none;
+                padding: 8px 0;
+                width: 25%;
+                color: var(--text-light);
+                font-size: 10px;
+                transition: color 0.3s ease;
+            }
+            
+            .bottom-nav-item i {
+                font-size: 18px;
+                margin-bottom: 4px;
+            }
+            
+            .bottom-nav-item.active {
+                color: var(--primary);
+            }
+            
+            .bottom-nav-item:hover {
+                color: var(--primary);
             }
 
-
-
+            /* Hero Section */
             .hero {
-                padding-top: 70px;
+                padding-top: 60px;
+                min-height: 70vh;
+                height: auto;
+                display: flex;
+                align-items: center;
             }
 
             .hero-video {
-                height: 120%;
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
                 object-position: center;
             }
 
+            .hero-overlay {
+                background: linear-gradient(
+                    to bottom,
+                    rgba(47, 79, 63, 0.98) 0%,
+                    rgba(47, 79, 63, 0.95) 50%,
+                    rgba(47, 79, 63, 0.9) 100%
+                ); /* Even darker for better text visibility */
+            }
+
             .hero-content {
-                padding: 0 30px;
+                padding: 0 20px;
+                margin-top: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 70vh;
+                background-color: rgba(0, 0, 0, 0.15); /* Subtle background for better text visibility */
+                border-radius: 15px;
+            }
+
+            .hero-subtitle {
+                font-size: 14px;
+                letter-spacing: 4px;
+                margin-bottom: 15px;
+                color: white;
+                text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+                background-color: rgba(0, 0, 0, 0.2);
+                padding: 5px 15px;
+                border-radius: 20px;
+                display: inline-block;
             }
 
             .hero-title {
-                font-size: 36px;
+                font-size: 40px;
                 line-height: 1.1;
+                margin-bottom: 20px;
+                color: white;
+                text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+                text-align: center;
             }
 
             .hero-description {
-                display: none;
-            }
-
-            .container {
-                padding: 0 30px;
-            }
-
-            .section {
-                padding: 80px 0;
-            }
-
-            .tea-products {
-                grid-template-columns: 1fr;
-                gap: 40px;
-                padding: 0;
-            }
-            
-            .tea-categories {
-                flex-direction: row;
-                gap: 8px;
-                margin-bottom: 40px;
-            }
-            
-            .tea-category {
-                padding: 8px 16px;
+                display: block;
                 font-size: 12px;
-                letter-spacing: 1px;
+                letter-spacing: 2px;
+                line-height: 1.6;
+                margin-bottom: 30px;
+                color: white;
+                text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+                text-align: center;
+                max-width: 280px;
+                background-color: rgba(0, 0, 0, 0.2);
+                padding: 8px 15px;
+                border-radius: 5px;
             }
             
-            .tea-image {
-                height: 220px;
+            /* Hero CTA Button */
+            .hero-cta {
+                display: inline-block;
+                background: var(--accent);
+                color: var(--text);
+                font-weight: 600;
+                padding: 14px 28px;
+                border-radius: 25px;
+                text-decoration: none;
+                margin-top: 20px;
+                font-size: 15px;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+                transition: all 0.3s ease;
+                text-shadow: none;
+            }
+            
+            .hero-cta:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
             }
             
             .percent-stamp {
-                top: 2%; /* Moved from 5% to 2% to position it higher on mobile */
-                left: -15px; /* Partially off screen for emphasis on mobile */
-                width: 90px;
-                height: 90px;
-                font-size: 22px;
+                top: 12%;
+                right: 15px;
+                left: auto;
+                width: 80px;
+                height: 80px;
+                font-size: 20px;
+                z-index: 5;
+                transform: rotate(10deg);
+                opacity: 1;
+                border: 2px dashed rgba(0, 0, 0, 0.5);
+                background: rgba(242, 201, 76, 0.9);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
             }
             
             .percent-stamp::after {
+                font-size: 8px;
+                bottom: 17px;
+            }
+
+            /* Main Content Sections */
+            .container {
+                padding: 0 15px;
+            }
+
+            .section {
+                padding: 40px 0;
+                margin-bottom: 20px;
+            }
+
+            .section-header {
+                margin-bottom: 30px;
+            }
+
+            .section-header h2 {
+                font-size: 28px;
+                margin-bottom: 10px;
+                color: var(--text);
+            }
+
+            .section-header p {
+                font-size: 14px;
+                padding: 0 10px;
+                color: var(--text-light);
+                line-height: 1.5;
+            }
+
+            /* Product Section */
+            .tea-collection {
+                margin-top: 30px;
+                padding-bottom: 20px;
+            }
+            
+            /* Make categories a sticky horizontal scroll */
+            .tea-categories {
+                display: flex;
+                overflow-x: auto;
+                white-space: nowrap;
+                -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+                scrollbar-width: none; /* Hide scrollbar in Firefox */
+                padding: 10px 0 15px;
+                margin-bottom: 20px;
+                position: sticky;
+                top: 60px;
+                background: white;
+                z-index: 100;
+                flex-wrap: nowrap;
+                justify-content: flex-start;
+                gap: 10px;
+                border-bottom: 1px solid var(--border);
+                box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            }
+            
+            .tea-categories::-webkit-scrollbar {
+                display: none; /* Hide scrollbar in Chrome/Safari */
+            }
+            
+            .tea-categories::after {
+                display: none; /* Remove bottom line */
+            }
+            
+            .tea-category {
+                padding: 10px 18px;
+                border: 1px solid var(--border);
+                background: white;
+                border-radius: 20px;
+                font-size: 13px;
+                letter-spacing: 1px;
+                flex-shrink: 0; /* Prevent shrinking */
+                margin-bottom: 0;
+                transition: all 0.3s ease;
+                min-width: 70px;
+                text-align: center;
+                box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+            }
+            
+            .tea-category.active {
+                background: var(--primary);
+                color: white;
+                border-color: var(--primary);
+                font-weight: 600;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            }
+            
+            /* Modern Product Cards */
+            .tea-products {
+                grid-template-columns: 1fr;
+                gap: 25px;
+                padding: 0 5px;
+                margin-top: 10px;
+            }
+            
+            .tea-product {
+                border-radius: 16px;
+                overflow: hidden;
+                box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+                border: none;
+                display: flex;
+                flex-direction: column;
+                transition: all 0.3s ease;
+                background-color: white;
+            }
+            
+            .tea-product:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+            }
+            
+            .tea-image {
+                height: 180px;
+                background-color: white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 15px;
+                border-bottom: 1px solid rgba(0,0,0,0.03);
+            }
+            
+            .tea-image img {
+                max-height: 160px;
+                width: auto;
+                object-fit: contain;
+            }
+            
+            .tea-info {
+                padding: 20px;
+                display: flex;
+                flex-direction: column;
+                flex-grow: 1;
+                position: relative;
+                background-color: white;
+            }
+            
+            .tea-info::before {
+                display: none; /* Remove top border */
+            }
+            
+            .tea-name {
+                font-size: 18px;
+                margin-bottom: 10px;
+                color: var(--text);
+                font-weight: 600;
+            }
+            
+            .tea-description {
+                font-size: 13px;
+                line-height: 1.5;
+                margin-bottom: 20px;
+                color: var(--text-light);
+                -webkit-line-clamp: 2;
+                flex-grow: 1;
+            }
+            
+            .tea-price-row {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            
+            .tea-price {
+                font-weight: 700;
+                color: var(--primary);
+                font-size: 18px;
+            }
+            
+            .tea-price::after {
+                display: none; /* Remove underline animation */
+            }
+            
+            .tea-add-btn {
+                background: var(--primary);
+                color: white;
+                border: none;
+                border-radius: 20px;
+                padding: 8px 16px;
+                font-size: 13px;
+                font-weight: 500;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            }
+            
+            .tea-add-btn:hover, .tea-add-btn:active {
+                background: var(--secondary);
+                transform: translateY(-2px);
+            }
+
+            /* About Section Improvements */
+            #about {
+                background: var(--bg-soft);
+                padding: 40px 0 50px;
+                margin-top: 20px;
+                border-top: 1px solid var(--border);
+                border-bottom: 1px solid var(--border);
+            }
+            
+            #about img {
+                max-width: 100px;
+                margin-bottom: 25px;
+                opacity: 1;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+                border: 3px solid white;
+                border-radius: 50%;
+            }
+
+            #about div[style*="font-size: 18px"] {
+                font-size: 14px !important;
+                line-height: 1.6 !important;
+                padding: 0 15px;
+                margin-bottom: 25px !important;
+                color: var(--text) !important;
+            }
+            
+            /* Learn More Button */
+            #about a[style*="background: var(--primary)"] {
+                background: var(--accent) !important;
+                color: var(--text) !important;
+                border-radius: 25px !important;
+                font-weight: 600 !important;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1) !important;
+                display: inline-block !important;
+                padding: 12px 28px !important;
+                font-size: 14px !important;
+                text-transform: uppercase !important;
+                letter-spacing: 1px !important;
+            }
+
+            /* Contact Section Improvements */
+            #contact {
+                padding-bottom: 80px; /* Extra space for bottom nav */
+            }
+            
+            .contact-info {
+                margin: 30px auto !important;
+            }
+            
+            .contact-card {
+                padding: 30px 20px !important;
+                box-shadow: 0 10px 25px rgba(0,0,0,0.08) !important;
+                border-radius: 16px !important;
+                border: 1px solid rgba(0,0,0,0.03) !important;
+            }
+
+            .contact-card h3 {
+                font-size: 18px !important;
+                margin-bottom: 10px !important;
+                color: var(--text) !important;
+                font-weight: 600 !important;
+            }
+
+            .contact-card p[style*="font-size: 20px"] {
+                font-size: 18px !important;
+                margin-bottom: 15px !important;
+                color: var(--primary) !important;
+                font-weight: 700 !important;
+            }
+            
+            .contact-card i {
+                font-size: 28px !important;
+                margin-bottom: 15px !important;
+                color: var(--primary) !important;
+                background-color: rgba(47, 79, 63, 0.1) !important;
+                width: 60px !important;
+                height: 60px !important;
+                line-height: 60px !important;
+                border-radius: 50% !important;
+            }
+            
+            /* Mobile-only buttons for call and follow */
+            .mobile-action-btn {
+                display: inline-block;
+                background: var(--primary);
+                color: white;
+                padding: 12px 24px;
+                border-radius: 25px;
+                text-decoration: none;
+                margin-top: 15px;
+                font-size: 13px;
+                font-weight: 600;
+                letter-spacing: 1px;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            }
+        }
+
+        /* Small mobile devices */
+        @media (max-width: 375px) {
+            .hero-title {
+                font-size: 32px;
+            }
+
+            .hero-subtitle {
+                font-size: 12px;
+                letter-spacing: 3px;
+            }
+
+            .nav-logo img {
+                height: 45px;
+                width: 45px;
+            }
+
+            .percent-stamp {
+                width: 65px;
+                height: 65px;
+                font-size: 16px;
+                top: 15%;
+                right: 8px;
+            }
+
+            .percent-stamp::after {
+                font-size: 7px;
+                bottom: 15px;
+            }
+            
+            .hero-cta {
+                padding: 10px 20px;
+                font-size: 12px;
+            }
+
+            .tea-category {
+                padding: 6px 12px;
+                font-size: 11px;
+                min-width: 70px;
+            }
+
+            .section-header h2 {
+                font-size: 24px;
+            }
+
+            .tea-name {
+                font-size: 16px;
+            }
+            
+            .container {
+                padding: 0 12px;
+            }
+            
+            .hero-content {
+                padding: 0 15px;
+            }
+            
+            #about img {
+                max-width: 90px;
+            }
+            
+            .tea-image {
+                height: 150px;
+            }
+            
+            .tea-info {
+                padding: 15px 12px;
+            }
+            
+            .tea-price {
+                font-size: 16px;
+            }
+            
+            .tea-add-btn {
+                padding: 5px 10px;
+                font-size: 11px;
+            }
+            
+            .bottom-nav-item {
                 font-size: 9px;
-                bottom: 20px;
+            }
+            
+            .bottom-nav-item i {
+                font-size: 16px;
+            }
+            
+            .mobile-action-btn {
+                padding: 8px 16px;
+                font-size: 11px;
+            }
+        }
+        
+        /* Extra small devices */
+        @media (max-width: 320px) {
+            .hero-title {
+                font-size: 26px;
+            }
+            
+            .hero-subtitle {
+                font-size: 10px;
+                letter-spacing: 2px;
+                padding: 4px 12px;
+            }
+            
+            .hero-description {
+                font-size: 10px;
+                padding: 6px 12px;
+                max-width: 250px;
+            }
+            
+            .hero-cta {
+                padding: 8px 16px;
+                font-size: 11px;
+            }
+            
+            .nav-logo img {
+                height: 40px;
+                width: 40px;
             }
             
             .nav {
-                padding: 20px 0; /* Mobile padding */
-                height: 80px; /* Mobile height */
+                height: 55px;
             }
-
-            .contact-form {
-                padding: 40px 30px;
+            
+            .tea-categories {
+                gap: 5px;
+                padding-bottom: 10px;
+            }
+            
+            .tea-category {
+                padding: 5px 8px;
+                font-size: 10px;
+                min-width: 60px;
+            }
+            
+            .section-header h2 {
+                font-size: 22px;
+            }
+            
+            .section-header p {
+                font-size: 12px;
+            }
+            
+            .tea-price {
+                font-size: 15px;
+            }
+            
+            .tea-add-btn {
+                padding: 4px 8px;
+                font-size: 10px;
+            }
+            
+            .bottom-nav {
+                height: 55px;
+            }
+            
+            .bottom-nav-item {
+                font-size: 8px;
+            }
+            
+            .bottom-nav-item i {
+                font-size: 14px;
+            }
+            
+            .mobile-action-btn {
+                padding: 6px 12px;
+                font-size: 10px;
             }
         }
 
@@ -1342,11 +2122,66 @@
             opacity: 0;
             transform: translateY(30px);
             transition: all 0.8s ease;
+            will-change: opacity, transform; /* Performance optimization */
         }
 
         .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
+        }
+        
+        /* Mobile animation optimizations */
+        @media (max-width: 768px) {
+            .fade-in {
+                transform: translateY(20px); /* Smaller transform distance on mobile */
+                transition: all 0.4s ease; /* Faster transition on mobile */
+            }
+            
+            /* Hide plant decorations on mobile */
+            .plant-decoration, .plant-accent, .plant-accent-right {
+                display: none;
+            }
+            
+            /* Style for bottom navigation */
+            .bottom-nav {
+                display: flex;
+                border-top: 1px solid rgba(0,0,0,0.05);
+                padding-top: 5px;
+                box-shadow: 0 -2px 15px rgba(0,0,0,0.1);
+            }
+            
+            .bottom-nav-item {
+                position: relative;
+                overflow: hidden;
+            }
+            
+            .bottom-nav-item::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 0;
+                height: 3px;
+                background-color: var(--primary);
+                transition: width 0.3s ease;
+                border-radius: 3px 3px 0 0;
+            }
+            
+            .bottom-nav-item.active::after {
+                width: 40%;
+            }
+            
+            .bottom-nav-item i {
+                margin-bottom: 5px;
+            }
+            
+            /* Custom styling for mobile buttons */
+            .hero-cta, .tea-add-btn, .mobile-action-btn {
+                -webkit-tap-highlight-color: transparent; /* Remove tap highlight on iOS */
+                touch-action: manipulation; /* Better touch behavior */
+                user-select: none; /* Prevent text selection */
+            }
         }
 
         /* Video Responsiveness */
@@ -1359,6 +2194,12 @@
         }
     </style>
 <script src="https://lib.youware.com/youware-lib.1747145198.js" id="yourware-lib"></script><style>
+            @keyframes pulse {
+                0% { transform: scale(1); }
+                50% { transform: scale(1.05); }
+                100% { transform: scale(1); }
+            }
+        </style><script src="https://lib.youware.com/youware-lib.1747145198.js" id="yourware-lib"></script><style>
             @keyframes pulse {
                 0% { transform: scale(1); }
                 50% { transform: scale(1.05); }
@@ -1417,7 +2258,7 @@
     </nav>
 
     <!-- Interactive Hero Section -->
-    <section id="home" class="hero" style="--mouse-x: 97.43589743589743%; --mouse-y: 4.067796610169491%;">
+    <section id="home" class="hero" style="--mouse-x: 74.87179487179488%; --mouse-y: 0%;">
         <!-- Background Video - Using a reliable source -->
         <video class="hero-video" autoplay="" muted="" loop="" playsinline="">
             <source src="vid.mp4" type="video/mp4">
@@ -1439,6 +2280,8 @@
             <p class="hero-description">
                 Discover handcrafted teas and lemonades made with passion in the heart of Baltimore.
             </p>
+            <!-- Hero CTA Button (Mobile Only) -->
+            <a href="#features" class="hero-cta">VIEW OUR MENU</a>
         </div>
 
         <!-- Interactive Click Elements -->
@@ -1447,12 +2290,32 @@
 
 
 
-    <!-- Custom Cursor -->
-    <div class="custom-cursor" style="left: 370px; top: 14px; opacity: 0;"></div>
+    <!-- Custom Cursor (hidden on mobile) -->
+    <div class="custom-cursor" style="left: 282px; top: -10px; opacity: 0;"></div>
 
-    <!-- Plant Accents -->
+    <!-- Plant Accents (hidden on mobile) -->
     <div class="plant-accent"></div>
     <div class="plant-accent-right"></div>
+    
+    <!-- Mobile Bottom Navigation -->
+    <div class="bottom-nav" id="bottomNav">
+        <a href="#home" class="bottom-nav-item active">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="#features" class="bottom-nav-item">
+            <i class="fas fa-mug-hot"></i>
+            <span>Menu</span>
+        </a>
+        <a href="#about" class="bottom-nav-item">
+            <i class="fas fa-info-circle"></i>
+            <span>About</span>
+        </a>
+        <a href="tel:4437568916" class="bottom-nav-item">
+            <i class="fas fa-phone"></i>
+            <span>Call</span>
+        </a>
+    </div>
 
     <!-- Tea Varieties Section -->
     <section id="features" class="section" style="position: relative;">
@@ -1481,7 +2344,10 @@
                         <div class="tea-info">
                             <h3 class="tea-name">Black Tea</h3>
                             <p class="tea-description">Rich and robust black tea blend perfect for starting your day with energy.</p>
-                            <div class="tea-price">$5.00</div>
+                            <div class="tea-price-row">
+                                <div class="tea-price">$5.00</div>
+                                <button class="tea-add-btn">Add to Cart</button>
+                            </div>
                         </div>
                     </div>
                     
@@ -1492,7 +2358,10 @@
                         <div class="tea-info">
                             <h3 class="tea-name">Green Tea</h3>
                             <p class="tea-description">Delicate green tea with natural antioxidants. Light and refreshing for any time of day.</p>
-                            <div class="tea-price">$5.00</div>
+                            <div class="tea-price-row">
+                                <div class="tea-price">$5.00</div>
+                                <button class="tea-add-btn">Add to Cart</button>
+                            </div>
                         </div>
                     </div>
                     
@@ -1504,7 +2373,10 @@
                         <div class="tea-info">
                             <h3 class="tea-name">Peach Green Tea Lemonade</h3>
                             <p class="tea-description">A perfect trio of sweet peach, refreshing green tea, and tart lemonade. Our signature drink.</p>
-                            <div class="tea-price">$6.00</div>
+                            <div class="tea-price-row">
+                                <div class="tea-price">$6.00</div>
+                                <button class="tea-add-btn">Add to Cart</button>
+                            </div>
                         </div>
                     </div>
                     
@@ -1515,7 +2387,10 @@
                         <div class="tea-info">
                             <h3 class="tea-name">Lemonade</h3>
                             <p class="tea-description">Classic fresh-squeezed lemonade made with real lemons. Sweet, tart, and refreshing.</p>
-                            <div class="tea-price">$5.00</div>
+                            <div class="tea-price-row">
+                                <div class="tea-price">$5.00</div>
+                                <button class="tea-add-btn">Add to Cart</button>
+                            </div>
                         </div>
                     </div>
                     
@@ -1526,7 +2401,10 @@
                         <div class="tea-info">
                             <h3 class="tea-name">Strawberry Bursting Boba</h3>
                             <p class="tea-description">Sweet strawberry flavor with chewy tapioca pearls. A refreshing and fruity treat.</p>
-                            <div class="tea-price">$6.00</div>
+                            <div class="tea-price-row">
+                                <div class="tea-price">$6.00</div>
+                                <button class="tea-add-btn">Add to Cart</button>
+                            </div>
                         </div>
                     </div>
                     
@@ -1538,7 +2416,10 @@
                         <div class="tea-info">
                             <h3 class="tea-name">Blueberry Bursting Boba</h3>
                             <p class="tea-description">Vibrant blueberry flavor with chewy tapioca pearls. Sweet and refreshing.</p>
-                            <div class="tea-price">$6.00</div>
+                            <div class="tea-price-row">
+                                <div class="tea-price">$6.00</div>
+                                <button class="tea-add-btn">Add to Cart</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1590,7 +2471,8 @@
                         <i class="fa fa-phone"></i>
                     </div>
                     <h3 style="font-size: 24px; margin-bottom: 20px; font-family: var(--font-serif); color: var(--text);">Call or Text</h3>
-                    <p style="font-size: 20px; color: var(--primary); font-weight: 500; margin-bottom: 30px;">(443) 756-8916</p>
+                    <p style="font-size: 20px; color: var(--primary); font-weight: 500; margin-bottom: 15px;">(443) 756-8916</p>
+                    <a href="tel:4437568916" class="mobile-action-btn">Call Now</a>
                     
                     <div style="width: 80px; height: 1px; background: var(--border); margin: 30px auto;"></div>
                     
@@ -1599,7 +2481,8 @@
                     </div>
                     <h3 style="font-size: 24px; margin-bottom: 20px; font-family: var(--font-serif); color: var(--text);">Follow Us</h3>
                     <p style="font-size: 20px; color: var(--primary); font-weight: 500; margin-bottom: 10px;">@leztea</p>
-                    <p style="font-size: 16px; color: var(--text-light);">DM us for orders and inquiries</p>
+                    <p style="font-size: 16px; color: var(--text-light); margin-bottom: 15px;">DM us for orders and inquiries</p>
+                    <a href="https://instagram.com/leztea" target="_blank" class="mobile-action-btn">Follow on Instagram</a>
                 </div>
             </div>
             
@@ -1612,7 +2495,10 @@
     </section>
 
     <script>
-        // Video Loading Screen Sequence
+        // Detect if mobile device for specific optimizations
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 769;
+        
+        // Video Loading Screen Sequence with mobile optimizations
         let loadingSequenceStarted = false;
         let videoEnded = false;
         
@@ -1624,12 +2510,14 @@
             const loadingBrand = document.getElementById('loadingBrand');
             const brandLogo = document.getElementById('brandLogo');
             const brandTagline = document.getElementById('brandTagline');
-            const enterSite = document.getElementById('enterSite');
             
-            // Phase 1: Video plays for 5 seconds
+            // On mobile, show loading sequence faster
+            const initialDelay = isMobile ? 2000 : 5000;
+            
+            // Phase 1: Video plays for 5 seconds (desktop) or 2 seconds (mobile)
             setTimeout(() => {
                 showBrandReveal();
-            }, 5000);
+            }, initialDelay);
             
             function showBrandReveal() {
                 // Fade out video, show brand
@@ -1644,14 +2532,63 @@
                 setTimeout(() => {
                     brandTagline.classList.add('animate');
                 }, 500);
-                
-
             }
         }
         
         // Start sequence when page loads
         window.addEventListener('load', () => {
             startLoadingSequence();
+            
+            // Mobile-specific adjustments after load
+            if (isMobile) {
+                // Ensure hero content is visible by resetting any transform
+                const heroContent = document.querySelector('.hero-content');
+                if (heroContent) {
+                    heroContent.style.transform = 'translateY(0)';
+                }
+                
+                // Pre-select the active tab and make sure products are properly shown
+                const activeCategory = document.querySelector('.tea-category.active');
+                if (activeCategory) {
+                    const selectedCategory = activeCategory.getAttribute('data-category');
+                    
+                    // Filter products immediately on page load
+                    teaProducts.forEach(product => {
+                        if (selectedCategory === 'all' || product.getAttribute('data-type') === selectedCategory) {
+                            product.style.display = 'block';
+                        } else {
+                            product.style.display = 'none';
+                        }
+                    });
+                }
+                
+                // Optimize image loading on mobile
+                // Lazy load images further down the page
+                const deferredImages = document.querySelectorAll('.tea-image img, #about img');
+                if ('IntersectionObserver' in window) {
+                    const imageObserver = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                const img = entry.target;
+                                const src = img.getAttribute('src');
+                                if (src) {
+                                    img.setAttribute('data-src', src);
+                                    
+                                    // Only load images when they're about to come into view
+                                    setTimeout(() => {
+                                        img.setAttribute('src', img.getAttribute('data-src'));
+                                    }, 100);
+                                }
+                                imageObserver.unobserve(img);
+                            }
+                        });
+                    });
+                    
+                    deferredImages.forEach(img => {
+                        imageObserver.observe(img);
+                    });
+                }
+            }
         });
         
         // Also start if video loads
@@ -1675,22 +2612,43 @@
             }
         });
         
-        // Auto-enter after brand display
+        // Auto-enter after brand display (faster on mobile)
         setTimeout(() => {
             if (!document.getElementById('loadingScreen').classList.contains('hidden')) {
-                // Auto-enter after 8 seconds total
+                // Auto-enter after 8 seconds (desktop) or 5 seconds (mobile)
                 document.getElementById('loadingScreen').classList.add('hidden');
             }
-        }, 8000);
+        }, isMobile ? 5000 : 8000);
 
-        // Navigation Scroll Effect
+        // Navigation Scroll Effect with hide/show on scroll
         const navbar = document.getElementById('navbar');
+        const bottomNav = document.getElementById('bottomNav');
+        
+        // Track scroll position for showing/hiding navbar
+        let lastScrollTop = 0;
         
         window.addEventListener('scroll', () => {
+            // Regular navigation behavior (transparent at top)
             if (window.pageYOffset > 100) {
                 navbar.classList.remove('transparent');
             } else {
                 navbar.classList.add('transparent');
+            }
+            
+            // Hide/show navbar on scroll (mobile only)
+            if (isMobile) {
+                const currentScroll = window.pageYOffset;
+                
+                // Show navbar when scrolling up, hide when scrolling down
+                if (currentScroll > lastScrollTop && currentScroll > 150) {
+                    // Scrolling down & not at the top
+                    navbar.classList.add('hidden');
+                } else {
+                    // Scrolling up or at the top
+                    navbar.classList.remove('hidden');
+                }
+                
+                lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
             }
         });
 
@@ -1714,30 +2672,89 @@
             });
         });
 
-        // Smooth Scrolling
+        // Smooth Scrolling with mobile offset adjustment
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({ 
-                        behavior: 'smooth',
-                        block: 'start'
+                    // Get current scroll position
+                    const currentScroll = window.pageYOffset;
+                    
+                    // Get target position with offset adjustment for mobile
+                    const targetPosition = target.getBoundingClientRect().top + currentScroll;
+                    const offset = isMobile ? -60 : 0; // Mobile needs more offset for fixed header
+                    
+                    // Scroll to adjusted position
+                    window.scrollTo({
+                        top: targetPosition + offset,
+                        behavior: 'smooth'
                     });
+                    
+                    // If mobile menu is open, close it
+                    if (isMobile && mobileMenu.classList.contains('open')) {
+                        hamburger.classList.remove('open');
+                        mobileMenu.classList.remove('open');
+                        document.body.style.overflow = '';
+                    }
+                    
+                    // Update active state in bottom navigation
+                    if (isMobile && bottomNav) {
+                        const sectionId = this.getAttribute('href');
+                        document.querySelectorAll('.bottom-nav-item').forEach(item => {
+                            if (item.getAttribute('href') === sectionId) {
+                                item.classList.add('active');
+                            } else {
+                                item.classList.remove('active');
+                            }
+                        });
+                    }
                 }
             });
         });
+        
+        // Bottom Navigation Active State on Scroll
+        if (isMobile) {
+            const sections = document.querySelectorAll('section[id]');
+            
+            window.addEventListener('scroll', () => {
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    
+                    if (pageYOffset >= (sectionTop - 200)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                document.querySelectorAll('.bottom-nav-item').forEach(item => {
+                    item.classList.remove('active');
+                    if (item.getAttribute('href') === `#${current}`) {
+                        item.classList.add('active');
+                    }
+                });
+            });
+        }
 
-        // Fade In Animation Observer
+        // Fade In Animation Observer - with mobile optimizations
         const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+            threshold: isMobile ? 0.05 : 0.1, // Lower threshold on mobile
+            rootMargin: isMobile ? '0px 0px -30px 0px' : '0px 0px -50px 0px' // Different margins for mobile
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+                    // Add visible class with a slight delay on mobile to improve performance
+                    if (isMobile) {
+                        setTimeout(() => {
+                            entry.target.classList.add('visible');
+                        }, 100); // Small delay for performance
+                    } else {
+                        entry.target.classList.add('visible');
+                    }
                 }
             });
         }, observerOptions);
@@ -1750,22 +2767,30 @@
         const hero = document.querySelector('.hero');
         const cursor = document.querySelector('.custom-cursor');
         
-        // Custom cursor follow
-        document.addEventListener('mousemove', (e) => {
-            if (cursor) {
-                cursor.style.left = e.clientX - 10 + 'px';
-                cursor.style.top = e.clientY - 10 + 'px';
-            }
-            
-            // Mouse gradient effect on hero
+        // Custom cursor follow - only on desktop
+        if (!isMobile) {
+            document.addEventListener('mousemove', (e) => {
+                if (cursor) {
+                    cursor.style.left = e.clientX - 10 + 'px';
+                    cursor.style.top = e.clientY - 10 + 'px';
+                }
+                
+                // Mouse gradient effect on hero
+                if (hero) {
+                    const rect = hero.getBoundingClientRect();
+                    const x = ((e.clientX - rect.left) / rect.width) * 100;
+                    const y = ((e.clientY - rect.top) / rect.height) * 100;
+                    hero.style.setProperty('--mouse-x', x + '%');
+                    hero.style.setProperty('--mouse-y', y + '%');
+                }
+            });
+        } else {
+            // For mobile, set a default position for the gradient effect
             if (hero) {
-                const rect = hero.getBoundingClientRect();
-                const x = ((e.clientX - rect.left) / rect.width) * 100;
-                const y = ((e.clientY - rect.top) / rect.height) * 100;
-                hero.style.setProperty('--mouse-x', x + '%');
-                hero.style.setProperty('--mouse-y', y + '%');
+                hero.style.setProperty('--mouse-x', '50%');
+                hero.style.setProperty('--mouse-y', '30%');
             }
-        });
+        }
 
         // Hide cursor when leaving hero section
         if (hero && cursor) {
@@ -1778,9 +2803,9 @@
             });
         }
 
-        // Interactive title hover effect
+        // Interactive title hover effect - only on desktop
         const title = document.querySelector('.hero-title');
-        if (title) {
+        if (title && !isMobile) {
             title.addEventListener('mouseenter', () => {
                 title.style.transform = 'scale(1.02)';
                 title.style.color = 'var(--primary)';
@@ -1789,6 +2814,17 @@
             title.addEventListener('mouseleave', () => {
                 title.style.transform = 'scale(1)';
                 title.style.color = 'white';
+            });
+        } else if (title && isMobile) {
+            // For mobile, make title tap/click interactive
+            title.addEventListener('click', () => {
+                title.style.transform = 'scale(1.02)';
+                title.style.color = 'var(--primary)';
+                
+                setTimeout(() => {
+                    title.style.transform = 'scale(1)';
+                    title.style.color = 'white';
+                }, 500);
             });
         }
         
@@ -1809,6 +2845,9 @@
                 teaProductsContainer.style.opacity = '0';
                 teaProductsContainer.style.transform = 'translateY(10px)';
                 
+                // Use shorter animation on mobile
+                const animationDelay = isMobile ? 150 : 300;
+                
                 // Wait for fade-out, then update products and fade back in
                 setTimeout(() => {
                     // Filter products
@@ -1825,7 +2864,19 @@
                         teaProductsContainer.style.opacity = '1';
                         teaProductsContainer.style.transform = 'translateY(0)';
                     }, 50);
-                }, 300);
+                }, animationDelay);
+                
+                // On mobile, scroll to products section
+                if (isMobile) {
+                    setTimeout(() => {
+                        const productsTop = teaProductsContainer.getBoundingClientRect().top;
+                        const scrollPosition = window.pageYOffset + productsTop - 100;
+                        window.scrollTo({
+                            top: scrollPosition,
+                            behavior: 'smooth'
+                        });
+                    }, animationDelay + 100);
+                }
             });
         });
 
@@ -1893,13 +2944,22 @@
         `;
         document.head.appendChild(style);
 
-        // Parallax scroll effect
+        // Parallax scroll effect - disable on mobile
         window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const parallax = document.querySelector('.hero-content');
-            if (parallax) {
-                const speed = scrolled * 0.5;
-                parallax.style.transform = `translateY(${speed}px)`;
+            // Only apply parallax effect on larger screens
+            if (window.innerWidth > 768) {
+                const scrolled = window.pageYOffset;
+                const parallax = document.querySelector('.hero-content');
+                if (parallax) {
+                    const speed = scrolled * 0.5;
+                    parallax.style.transform = `translateY(${speed}px)`;
+                }
+            } else {
+                // Reset transform on mobile to avoid layout issues
+                const parallax = document.querySelector('.hero-content');
+                if (parallax) {
+                    parallax.style.transform = 'translateY(0)';
+                }
             }
         });
 
@@ -1922,13 +2982,80 @@
             }, 1500);
         });
 
-        // Video autoplay fallback
+        // Video autoplay fallback with mobile optimizations
         setTimeout(() => {
-            const iframe = document.querySelector('.hero-video');
-            if (iframe) {
-                iframe.src = iframe.src + '&autoplay=1';
+            const heroVideo = document.querySelector('.hero-video');
+            if (heroVideo) {
+                // If it's a video tag, ensure it's playing
+                if (heroVideo.tagName === 'VIDEO') {
+                    heroVideo.play().catch(err => {
+                        console.log('Video autoplay failed:', err);
+                        // On mobile, some browsers block autoplay, so we'll add a play button if needed
+                        if (isMobile) {
+                            const heroOverlay = document.querySelector('.hero-overlay');
+                            if (heroOverlay && !document.querySelector('.video-play-button')) {
+                                const playButton = document.createElement('button');
+                                playButton.className = 'video-play-button';
+                                playButton.innerHTML = '<i class="fas fa-play"></i>';
+                                playButton.style.cssText = 'position:absolute;z-index:5;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(255,255,255,0.2);border:none;color:white;font-size:24px;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;';
+                                heroOverlay.appendChild(playButton);
+                                
+                                playButton.addEventListener('click', () => {
+                                    heroVideo.play();
+                                    playButton.style.display = 'none';
+                                });
+                            }
+                        }
+                    });
+                }
+                // If it's an iframe, add autoplay parameter
+                else if (heroVideo.tagName === 'IFRAME' && heroVideo.src.indexOf('autoplay=') === -1) {
+                    heroVideo.src = heroVideo.src + (heroVideo.src.indexOf('?') > -1 ? '&' : '?') + 'autoplay=1';
+                }
             }
-        }, 1000);
+        }, isMobile ? 500 : 1000);
+        
+        // Handle window resize events to update responsive behavior - with throttling for performance
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            // Throttle resize event for better performance
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                // Update isMobile status on resize
+                const wasMobile = isMobile;
+                isMobile = window.innerWidth < 769;
+                
+                // If switching between mobile and desktop, update critical elements
+                if (wasMobile !== isMobile) {
+                    // Reset hero content transform
+                    const heroContent = document.querySelector('.hero-content');
+                    if (heroContent) {
+                        heroContent.style.transform = 'translateY(0)';
+                    }
+                    
+                    // Update gradient position on hero
+                    if (hero) {
+                        if (isMobile) {
+                            hero.style.setProperty('--mouse-x', '50%');
+                            hero.style.setProperty('--mouse-y', '30%');
+                        }
+                    }
+                    
+                    // Adjust animations for performance on mobile
+                    if (isMobile) {
+                        // Reduce or disable certain animations on mobile for performance
+                        document.querySelectorAll('.fade-in').forEach(el => {
+                            el.style.transition = 'all 0.4s ease'; // Faster transitions on mobile
+                        });
+                    } else {
+                        // Restore animations on desktop
+                        document.querySelectorAll('.fade-in').forEach(el => {
+                            el.style.transition = 'all 0.8s ease'; // Original transitions
+                        });
+                    }
+                }
+            }, 200); // 200ms throttle
+        });
     </script>
 
 </body></html>
