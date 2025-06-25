@@ -678,7 +678,7 @@
         /* 100% Stamp/Sticker - Yellow Transparent Stamp */
         .percent-stamp {
             position: absolute;
-            top: 4%; /* Moved from 12% to 4% to position it higher */
+            top: 2%; /* Moved even higher */
             left: -25px; /* Partially off screen for emphasis */
             transform: rotate(-12deg);
             width: 130px;
@@ -925,24 +925,9 @@
             }
         }
 
-        /* Mouse Cursor Effect */
+        /* Mouse Cursor Effect - Removed as requested */
         .custom-cursor {
-            position: fixed;
-            width: 20px;
-            height: 20px;
-            background: var(--primary);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-            transition: all 0.1s ease;
-            mix-blend-mode: difference;
-            display: none; /* Hide by default and show only on desktop */
-        }
-        
-        @media (min-width: 769px) {
-            .custom-cursor {
-                display: block; /* Only show custom cursor on desktop */
-            }
+            display: none !important;
         }
 
         /* Click Ripple Effect */
@@ -1458,6 +1443,11 @@
             background: var(--secondary);
         }
 
+        /* Remove bottom padding from body on desktop */
+        body {
+            padding-bottom: 0;
+        }
+
         /* Mobile-First Responsive Design */
         @media (max-width: 768px) {
             /* Main Navigation - Hide on scroll down, show on scroll up */
@@ -1466,11 +1456,12 @@
             }
             
             .nav {
-                padding: 10px 0;
-                height: 60px;
+                padding: 12px 0;
+                height: 85px; /* Increased height to accommodate bigger logo */
                 box-shadow: 0 2px 10px rgba(0,0,0,0.1);
                 background: white;
                 transition: transform 0.3s ease;
+                text-align: center;
             }
             
             .nav.hidden {
@@ -1493,18 +1484,22 @@
 
             .nav-logo {
                 position: relative;
-                left: 0;
+                left: auto;
+                right: auto;
                 top: 0;
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                width: 100%;
+                text-align: center;
             }
 
             .nav-logo img {
-                height: 50px;
-                width: 50px;
+                height: 90px; /* Even bigger logo on mobile */
+                width: 90px;
                 box-shadow: 0 3px 10px rgba(0,0,0,0.1);
                 animation: none; /* Remove rotation on mobile */
+                margin: 0 auto; /* Center the logo */
             }
             
             /* Bottom Navigation Bar - Mobile App Style */
@@ -1555,13 +1550,14 @@
                 height: auto;
                 display: flex;
                 align-items: center;
+                background-image: url('https://static.wixstatic.com/media/cfa576_f1967a1e829943659995099f31104b96~mv2.jpg/v1/fill/w_568,h_378,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/cfa576_f1967a1e829943659995099f31104b96~mv2.jpg');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
             }
 
             .hero-video {
-                height: 100%;
-                width: 100%;
-                object-fit: cover;
-                object-position: center;
+                display: none; /* Hide video on mobile */
             }
 
             .hero-overlay {
@@ -1581,8 +1577,8 @@
                 align-items: center;
                 justify-content: center;
                 height: 70vh;
-                background-color: rgba(0, 0, 0, 0.15); /* Subtle background for better text visibility */
-                border-radius: 15px;
+                border-radius: 0;
+                background-color: transparent; /* Remove the dark background */
             }
 
             .hero-subtitle {
@@ -1598,7 +1594,7 @@
             }
 
             .hero-title {
-                font-size: 40px;
+                font-size: 42px; /* Bigger title */
                 line-height: 1.1;
                 margin-bottom: 20px;
                 color: white;
@@ -1621,31 +1617,14 @@
                 border-radius: 5px;
             }
             
-            /* Hero CTA Button */
-            .hero-cta {
-                display: inline-block;
-                background: var(--accent);
-                color: var(--text);
-                font-weight: 600;
-                padding: 14px 28px;
-                border-radius: 25px;
-                text-decoration: none;
-                margin-top: 20px;
-                font-size: 15px;
-                letter-spacing: 1px;
-                text-transform: uppercase;
-                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-                transition: all 0.3s ease;
-                text-shadow: none;
-            }
-            
-            .hero-cta:hover {
-                transform: translateY(-2px);
-                box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+            /* Hide Hero CTA Button and mobile-specific elements on Desktop */
+            .hero-cta,
+            .mobile-action-btn {
+                display: none;
             }
             
             .percent-stamp {
-                top: 12%;
+                top: 5%; /* Moved much higher as requested */
                 right: 15px;
                 left: auto;
                 width: 80px;
@@ -1817,38 +1796,16 @@
                 flex-grow: 1;
             }
             
-            .tea-price-row {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
-            
             .tea-price {
                 font-weight: 700;
                 color: var(--primary);
                 font-size: 18px;
+                margin-top: 10px;
+                display: block;
             }
             
             .tea-price::after {
                 display: none; /* Remove underline animation */
-            }
-            
-            .tea-add-btn {
-                background: var(--primary);
-                color: white;
-                border: none;
-                border-radius: 20px;
-                padding: 8px 16px;
-                font-size: 13px;
-                font-weight: 500;
-                cursor: pointer;
-                transition: all 0.3s ease;
-                box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            }
-            
-            .tea-add-btn:hover, .tea-add-btn:active {
-                background: var(--secondary);
-                transform: translateY(-2px);
             }
 
             /* About Section Improvements */
@@ -1862,11 +1819,12 @@
             
             #about img {
                 max-width: 100px;
-                margin-bottom: 25px;
+                margin: 0 auto 25px;
                 opacity: 1;
                 box-shadow: 0 5px 15px rgba(0,0,0,0.15);
                 border: 3px solid white;
                 border-radius: 50%;
+                display: block;
             }
 
             #about div[style*="font-size: 18px"] {
@@ -1965,11 +1923,13 @@
             }
 
             .percent-stamp {
-                width: 65px;
-                height: 65px;
-                font-size: 16px;
-                top: 15%;
-                right: 8px;
+                width: 70px;
+                height: 70px;
+                font-size: 18px;
+                top: 3%; /* Moved higher */
+                right: -20px; /* Positioned partially off-screen */
+                transform: rotate(10deg);
+                position: absolute;
             }
 
             .percent-stamp::after {
@@ -1977,9 +1937,27 @@
                 bottom: 15px;
             }
             
+            /* Hero CTA Button (Mobile Only) */
             .hero-cta {
-                padding: 10px 20px;
-                font-size: 12px;
+                display: inline-block;
+                background: var(--accent);
+                color: var(--text);
+                font-weight: 600;
+                padding: 14px 28px;
+                border-radius: 25px;
+                text-decoration: none;
+                margin-top: 20px;
+                font-size: 15px;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+                transition: all 0.3s ease;
+                text-shadow: none;
+            }
+            
+            .hero-cta:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
             }
 
             .tea-category {
@@ -2130,6 +2108,11 @@
             transform: translateY(0);
         }
         
+        /* Hide bottom navigation on desktop */
+        .bottom-nav {
+            display: none;
+        }
+
         /* Mobile animation optimizations */
         @media (max-width: 768px) {
             .fade-in {
@@ -2142,7 +2125,7 @@
                 display: none;
             }
             
-            /* Style for bottom navigation */
+            /* Style for bottom navigation - only show on mobile */
             .bottom-nav {
                 display: flex;
                 border-top: 1px solid rgba(0,0,0,0.05);
@@ -2258,7 +2241,7 @@
     </nav>
 
     <!-- Interactive Hero Section -->
-    <section id="home" class="hero" style="--mouse-x: 74.87179487179488%; --mouse-y: 0%;">
+    <section id="home" class="hero" style="--mouse-x: 50%; --mouse-y: 30%;">
         <!-- Background Video - Using a reliable source -->
         <video class="hero-video" autoplay="" muted="" loop="" playsinline="">
             <source src="vid.mp4" type="video/mp4">
@@ -2290,8 +2273,7 @@
 
 
 
-    <!-- Custom Cursor (hidden on mobile) -->
-    <div class="custom-cursor" style="left: 282px; top: -10px; opacity: 0;"></div>
+    <!-- Custom Cursor removed as requested -->
 
     <!-- Plant Accents (hidden on mobile) -->
     <div class="plant-accent"></div>
@@ -2344,10 +2326,7 @@
                         <div class="tea-info">
                             <h3 class="tea-name">Black Tea</h3>
                             <p class="tea-description">Rich and robust black tea blend perfect for starting your day with energy.</p>
-                            <div class="tea-price-row">
-                                <div class="tea-price">$5.00</div>
-                                <button class="tea-add-btn">Add to Cart</button>
-                            </div>
+                            <div class="tea-price">$5.00</div>
                         </div>
                     </div>
                     
@@ -2358,10 +2337,7 @@
                         <div class="tea-info">
                             <h3 class="tea-name">Green Tea</h3>
                             <p class="tea-description">Delicate green tea with natural antioxidants. Light and refreshing for any time of day.</p>
-                            <div class="tea-price-row">
-                                <div class="tea-price">$5.00</div>
-                                <button class="tea-add-btn">Add to Cart</button>
-                            </div>
+                            <div class="tea-price">$5.00</div>
                         </div>
                     </div>
                     
@@ -2373,10 +2349,7 @@
                         <div class="tea-info">
                             <h3 class="tea-name">Peach Green Tea Lemonade</h3>
                             <p class="tea-description">A perfect trio of sweet peach, refreshing green tea, and tart lemonade. Our signature drink.</p>
-                            <div class="tea-price-row">
-                                <div class="tea-price">$6.00</div>
-                                <button class="tea-add-btn">Add to Cart</button>
-                            </div>
+                            <div class="tea-price">$6.00</div>
                         </div>
                     </div>
                     
@@ -2387,39 +2360,30 @@
                         <div class="tea-info">
                             <h3 class="tea-name">Lemonade</h3>
                             <p class="tea-description">Classic fresh-squeezed lemonade made with real lemons. Sweet, tart, and refreshing.</p>
-                            <div class="tea-price-row">
-                                <div class="tea-price">$5.00</div>
-                                <button class="tea-add-btn">Add to Cart</button>
-                            </div>
+                            <div class="tea-price">$5.00</div>
                         </div>
                     </div>
                     
                     <div class="tea-product" data-type="boba" style="display: block;">
                         <div class="tea-image">
-                            <img src="https://public.youware.com/users-website-assets/prod/e527ff6c-26c9-4659-988d-4d2e86b6ff41/d6abaf072ad8459b933c57eb36becf61.png" alt="Strawberry Boba">
+                            <img src="https://public.youware.com/users-website-assets/prod/e527ff6c-26c9-4659-988d-4d2e86b6ff41/d6abaf072ad8459b933c57eb36becf61.png" alt="Strawberry Boba" data-src="https://public.youware.com/users-website-assets/prod/e527ff6c-26c9-4659-988d-4d2e86b6ff41/d6abaf072ad8459b933c57eb36becf61.png">
                         </div>
                         <div class="tea-info">
                             <h3 class="tea-name">Strawberry Bursting Boba</h3>
                             <p class="tea-description">Sweet strawberry flavor with chewy tapioca pearls. A refreshing and fruity treat.</p>
-                            <div class="tea-price-row">
-                                <div class="tea-price">$6.00</div>
-                                <button class="tea-add-btn">Add to Cart</button>
-                            </div>
+                            <div class="tea-price">$6.00</div>
                         </div>
                     </div>
                     
                     <!-- Boba Category -->
                     <div class="tea-product" data-type="boba" style="display: block;">
                         <div class="tea-image">
-                            <img src="https://public.youware.com/users-website-assets/prod/e527ff6c-26c9-4659-988d-4d2e86b6ff41/a33ce1678dd74481982c9508e10d1dec.png" alt="Blueberry Boba">
+                            <img src="https://public.youware.com/users-website-assets/prod/e527ff6c-26c9-4659-988d-4d2e86b6ff41/a33ce1678dd74481982c9508e10d1dec.png" alt="Blueberry Boba" data-src="https://public.youware.com/users-website-assets/prod/e527ff6c-26c9-4659-988d-4d2e86b6ff41/a33ce1678dd74481982c9508e10d1dec.png">
                         </div>
                         <div class="tea-info">
                             <h3 class="tea-name">Blueberry Bursting Boba</h3>
                             <p class="tea-description">Vibrant blueberry flavor with chewy tapioca pearls. Sweet and refreshing.</p>
-                            <div class="tea-price-row">
-                                <div class="tea-price">$6.00</div>
-                                <button class="tea-add-btn">Add to Cart</button>
-                            </div>
+                            <div class="tea-price">$6.00</div>
                         </div>
                     </div>
                 </div>
@@ -2441,7 +2405,7 @@
             <div style="max-width: 800px; margin: 0 auto; text-align: center;">
                 <!-- Logo Image in About Section -->
                 <div style="margin: 0 auto 40px; max-width: 200px;" class="fade-in visible">
-                    <img src="logo.png" alt="Lez Tea Logo" style="width: 100%; border-radius: 50%; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                    <img src="logo.png" alt="Lez Tea Logo" style="width: 100%; border-radius: 50%; box-shadow: 0 10px 30px rgba(0,0,0,0.1);" data-src="logo.png">
                 </div>
                 
                 <div style="font-size: 18px; line-height: 1.8; color: var(--text-light); margin-bottom: 40px;" class="fade-in visible">
@@ -2767,14 +2731,10 @@
         const hero = document.querySelector('.hero');
         const cursor = document.querySelector('.custom-cursor');
         
-        // Custom cursor follow - only on desktop
+        // Custom cursor removed as requested
+        // Only keep the gradient effect on desktop
         if (!isMobile) {
             document.addEventListener('mousemove', (e) => {
-                if (cursor) {
-                    cursor.style.left = e.clientX - 10 + 'px';
-                    cursor.style.top = e.clientY - 10 + 'px';
-                }
-                
                 // Mouse gradient effect on hero
                 if (hero) {
                     const rect = hero.getBoundingClientRect();
