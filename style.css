@@ -14,7 +14,7 @@
 .banner {
   background: #fef08a;
   text-align: center;
-  padding: 8px;
+  padding: 10px;
   font-weight: 600;
   font-size: 14px;
   letter-spacing: 1px;
@@ -92,7 +92,7 @@
 }
 .hero-title {
   font-family: var(--font-cursive);
-  font-size: 3rem;
+  font-size: 3.2rem;
   margin-bottom: 20px;
 }
 .hero-description {
@@ -116,13 +116,19 @@
   background: var(--bg);
   text-align: center;
 }
+.section-header {
+  max-width: 600px;
+  margin: 0 auto 40px auto;
+}
 .section-header h2 {
   font-size: 32px;
   margin-bottom: 12px;
 }
+
+/* Menu Grid */
 .menu-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
   margin-top: 30px;
 }
@@ -133,13 +139,15 @@
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   overflow: hidden;
-  text-align: left;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .tea-image {
   width: 100%;
-  height: 240px;
-  object-fit: contain;
-  background: white;
+  height: 220px;
+  object-fit: cover;
 }
 .tea-info {
   padding: 20px;
@@ -153,6 +161,7 @@
   font-size: 14px;
   color: var(--text-light);
   margin-bottom: 12px;
+  min-height: 40px;
 }
 .tea-price {
   font-weight: 700;
@@ -232,6 +241,11 @@
   margin-top: 20px;
   font-size: 13px;
   color: #666;
+}
+
+/* Fonts */
+.serif {
+  font-family: 'Young Serif', serif;
 }
 
 /* Fonts */
