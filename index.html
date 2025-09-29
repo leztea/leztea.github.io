@@ -2,163 +2,243 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Lez Tea · Baltimore's Best Artisanal Teas & Lemonades</title>
-
-  <!-- Tailwind CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
   <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Young+Serif&family=Great+Vibes&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;600&family=Young+Serif&family=Great+Vibes&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
-  <!-- Custom CSS -->
+  <!-- Site Styles -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- Pickup/Delivery Banner -->
-  <div class="banner">
-    Local Pickup & Delivery in Baltimore Only 🚚 · No Shipping
+  <!-- Local-only Banner -->
+  <div class="banner" role="note">
+    <strong>Local Only:</strong> Pickup & Delivery in Baltimore — <em>No Shipping</em>.
   </div>
 
   <!-- Navigation -->
-  <nav class="nav">
-    <div class="nav-content">
-      <a href="#home" class="nav-logo">
-        <img src="logo.png" alt="Lez Tea Logo" class="logo" />
+  <header class="nav">
+    <div class="nav__inner">
+      <a href="#home" class="nav__brand">
+        <img src="logo.png" alt="Lez Tea logo" class="nav__logo" />
+        <span class="nav__title">Lez Tea</span>
       </a>
-      <div class="nav-menu hidden md:flex gap-8">
-        <a href="#home" class="nav-link">Home</a>
-        <a href="#menu" class="nav-link">Shop</a>
-        <a href="#about" class="nav-link">About</a>
-        <a href="#contact" class="nav-link">Contact</a>
-        <a href="#menu" class="nav-cta">Order Now</a>
-      </div>
+      <nav class="nav__links" aria-label="primary">
+        <a href="#home" class="nav__link">Home</a>
+        <a href="#menu" class="nav__link">Shop</a>
+        <a href="#about" class="nav__link">About</a>
+        <a href="#contact" class="nav__link">Contact</a>
+        <a href="#menu" class="btn btn--pill btn--primary">Order Now</a>
+      </nav>
     </div>
-  </nav>
+  </header>
 
   <!-- Hero -->
-  <section id="home" class="hero">
-    <video class="hero-video" autoplay muted loop playsinline>
+  <section id="home" class="hero" aria-label="Lez Tea hero">
+    <video class="hero__video" autoplay muted loop playsinline>
       <source src="vid.mp4" type="video/mp4" />
     </video>
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <div class="hero-subtitle">Baltimore's Best Tea</div>
-      <h1 class="hero-title">Tea & Lemonades</h1>
-      <p class="hero-description">Handcrafted teas, lemonades, and bursting boba — made with love in the heart of Baltimore.</p>
-      <a href="#menu" class="hero-cta-btn">View Menu</a>
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <p class="hero__kicker">Baltimore's Best Tea</p>
+      <h1 class="hero__title">Tea & Lemonades</h1>
+      <p class="hero__tag">Handcrafted teas, lemonades, and bursting boba — made with love in Baltimore.</p>
+      <a href="#menu" class="btn btn--accent btn--pill">View Menu</a>
     </div>
   </section>
 
-  <!-- Menu Section -->
-  <section id="menu" class="section">
-    <div class="section-header">
-      <h2 class="serif">Our Menu</h2>
-      <p>Explore our signature drinks — fresh, flavorful, and crafted to perfection.</p>
+  <!-- Menu -->
+  <main id="menu" class="section section--menu" aria-labelledby="menu-title">
+    <div class="container">
+      <header class="section__head">
+        <h2 id="menu-title" class="serif">Our Menu</h2>
+        <p class="muted">Fresh, flavorful, and crafted to perfection. Local pickup & delivery only.</p>
+      </header>
+
+      <div class="grid">
+        <!-- Black Tea -->
+        <article class="card">
+          <div class="card__media">
+            <img src="https://i.ibb.co/8LtczvvS/16-DBB813-7380-42-AD-BDF3-38-ABF6-B5-FC5-F.jpg" alt="Black Tea" />
+          </div>
+          <div class="card__body">
+            <h3 class="card__title">Black Tea</h3>
+            <p class="card__text">Rich and robust blend with a smooth, bold finish.</p>
+            <div class="card__meta">
+              <span class="price">$5.00</span>
+            </div>
+            <div class="pay">
+              <a class="btn btn--cashapp" href="https://cash.app/$lesske" target="_blank" rel="noopener">
+                <i class="fa-brands fa-square-cash" aria-hidden="true"></i>
+                Pay Cash App <span class="hide-sm">($lesske)</span>
+              </a>
+              <a class="btn btn--zelle" href="sms:+14437568916?body=Hi%20Lez%20Tea%2C%20I%E2%80%99d%20like%20to%20order%20Black%20Tea%20for%20pickup%2Fdelivery.">
+                <i class="fa-solid fa-bolt" aria-hidden="true"></i>
+                Zelle: <span class="nowrap">443-756-8916</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Classic Lemonade -->
+        <article class="card">
+          <div class="card__media">
+            <img src="https://i.ibb.co/JWW3mWcs/IMG-3804-3.jpg" alt="Classic Lemonade" />
+          </div>
+          <div class="card__body">
+            <h3 class="card__title">Classic Lemonade</h3>
+            <p class="card__text">Fresh-squeezed lemons, perfectly balanced & ultra-refreshing.</p>
+            <div class="card__meta">
+              <span class="price">$5.00</span>
+            </div>
+            <div class="pay">
+              <a class="btn btn--cashapp" href="https://cash.app/$lesske" target="_blank" rel="noopener">
+                <i class="fa-brands fa-square-cash" aria-hidden="true"></i>
+                Pay Cash App <span class="hide-sm">($lesske)</span>
+              </a>
+              <a class="btn btn--zelle" href="sms:+14437568916?body=Hi%20Lez%20Tea%2C%20I%E2%80%99d%20like%20to%20order%20Classic%20Lemonade%20for%20pickup%2Fdelivery.">
+                <i class="fa-solid fa-bolt" aria-hidden="true"></i>
+                Zelle: <span class="nowrap">443-756-8916</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Strawberry Bursting Boba -->
+        <article class="card">
+          <div class="card__media">
+            <img src="https://i.ibb.co/nsr5N6D4/IMG-3807-3.jpg" alt="Strawberry Bursting Boba" />
+          </div>
+          <div class="card__body">
+            <h3 class="card__title">Strawberry Bursting Boba</h3>
+            <p class="card__text">Sweet strawberry with fun popping pearls in every sip.</p>
+            <div class="card__meta">
+              <span class="price">$6.00</span>
+            </div>
+            <div class="pay">
+              <a class="btn btn--cashapp" href="https://cash.app/$lesske" target="_blank" rel="noopener">
+                <i class="fa-brands fa-square-cash" aria-hidden="true"></i>
+                Pay Cash App <span class="hide-sm">($lesske)</span>
+              </a>
+              <a class="btn btn--zelle" href="sms:+14437568916?body=Hi%20Lez%20Tea%2C%20I%E2%80%99d%20like%20to%20order%20Strawberry%20Bursting%20Boba%20for%20pickup%2Fdelivery.">
+                <i class="fa-solid fa-bolt" aria-hidden="true"></i>
+                Zelle: <span class="nowrap">443-756-8916</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Blueberry Bursting Boba -->
+        <article class="card">
+          <div class="card__media">
+            <img src="https://i.ibb.co/pv3qTpXx/DB2478-D1-79-CB-4-B6-D-AE39-63-EBDA8426-EF-3.jpg" alt="Blueberry Bursting Boba" />
+          </div>
+          <div class="card__body">
+            <h3 class="card__title">Blueberry Bursting Boba</h3>
+            <p class="card__text">Bright blueberry flavor with refreshing boba pops.</p>
+            <div class="card__meta">
+              <span class="price">$6.00</span>
+            </div>
+            <div class="pay">
+              <a class="btn btn--cashapp" href="https://cash.app/$lesske" target="_blank" rel="noopener">
+                <i class="fa-brands fa-square-cash" aria-hidden="true"></i>
+                Pay Cash App <span class="hide-sm">($lesske)</span>
+              </a>
+              <a class="btn btn--zelle" href="sms:+14437568916?body=Hi%20Lez%20Tea%2C%20I%E2%80%99d%20like%20to%20order%20Blueberry%20Bursting%20Boba%20for%20pickup%2Fdelivery.">
+                <i class="fa-solid fa-bolt" aria-hidden="true"></i>
+                Zelle: <span class="nowrap">443-756-8916</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Peach Green Tea -->
+        <article class="card">
+          <div class="card__media">
+            <img src="https://i.ibb.co/MDVPDDqg/69-FF69-F1-521-F-4577-81-A1-099-BF864-C00-B.jpg" alt="Peach Green Tea" />
+          </div>
+          <div class="card__body">
+            <h3 class="card__title">Peach Green Tea</h3>
+            <p class="card__text">Juicy peach blended with smooth, crisp green tea.</p>
+            <div class="card__meta">
+              <span class="price">$5.50</span>
+            </div>
+            <div class="pay">
+              <a class="btn btn--cashapp" href="https://cash.app/$lesske" target="_blank" rel="noopener">
+                <i class="fa-brands fa-square-cash" aria-hidden="true"></i>
+                Pay Cash App <span class="hide-sm">($lesske)</span>
+              </a>
+              <a class="btn btn--zelle" href="sms:+14437568916?body=Hi%20Lez%20Tea%2C%20I%E2%80%99d%20like%20to%20order%20Peach%20Green%20Tea%20for%20pickup%2Fdelivery.">
+                <i class="fa-solid fa-bolt" aria-hidden="true"></i>
+                Zelle: <span class="nowrap">443-756-8916</span>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- How to Order -->
+      <div class="order-note" role="note">
+        <p><strong>How to order:</strong> Pay via <a href="https://cash.app/$lesske" target="_blank" rel="noopener">Cash App ($lesske)</a> or send via <span class="nowrap">Zelle 443-756-8916</span>. Then text us your name, items, quantity, and pickup/delivery time at <a href="sms:+14437568916">443-756-8916</a>.</p>
+      </div>
     </div>
-
-    <div class="menu-grid">
-      <!-- Black Tea -->
-      <div class="tea-product">
-        <img src="https://i.ibb.co/8LtczvvS/16-DBB813-7380-42-AD-BDF3-38-ABF6-B5-FC5-F.jpg" alt="Black Tea" class="tea-image" />
-        <div class="tea-info">
-          <h3 class="tea-name">Black Tea</h3>
-          <p class="tea-description">Rich and robust blend with a bold finish.</p>
-          <div class="tea-price">$5.00</div>
-          <div class="payment-buttons">
-            <a href="https://cash.app/$lesske" target="_blank" class="cashapp-btn">Pay with CashApp ($lesske)</a>
-            <span class="zelle-btn">Zelle: 443-756-8916</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Lemonade -->
-      <div class="tea-product">
-        <img src="https://i.ibb.co/JWW3mWcs/IMG-3804-3.jpg" alt="Classic Lemonade" class="tea-image" />
-        <div class="tea-info">
-          <h3 class="tea-name">Classic Lemonade</h3>
-          <p class="tea-description">Fresh-squeezed lemons, perfectly balanced.</p>
-          <div class="tea-price">$5.00</div>
-          <div class="payment-buttons">
-            <a href="https://cash.app/$lesske" target="_blank" class="cashapp-btn">Pay with CashApp ($lesske)</a>
-            <span class="zelle-btn">Zelle: 443-756-8916</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Strawberry Bursting Boba -->
-      <div class="tea-product">
-        <img src="https://i.ibb.co/nsr5N6D4/IMG-3807-3.jpg" alt="Strawberry Bursting Boba" class="tea-image" />
-        <div class="tea-info">
-          <h3 class="tea-name">Strawberry Bursting Boba</h3>
-          <p class="tea-description">Sweet strawberry flavor with fun popping pearls.</p>
-          <div class="tea-price">$6.00</div>
-          <div class="payment-buttons">
-            <a href="https://cash.app/$lesske" target="_blank" class="cashapp-btn">Pay with CashApp ($lesske)</a>
-            <span class="zelle-btn">Zelle: 443-756-8916</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Blueberry Bursting Boba -->
-      <div class="tea-product">
-        <img src="https://i.ibb.co/pv3qTpXx/DB2478-D1-79-CB-4-B6-D-AE39-63-EBDA8426-EF-3.jpg" alt="Blueberry Bursting Boba" class="tea-image" />
-        <div class="tea-info">
-          <h3 class="tea-name">Blueberry Bursting Boba</h3>
-          <p class="tea-description">Tart blueberry with refreshing boba pops.</p>
-          <div class="tea-price">$6.00</div>
-          <div class="payment-buttons">
-            <a href="https://cash.app/$lesske" target="_blank" class="cashapp-btn">Pay with CashApp ($lesske)</a>
-            <span class="zelle-btn">Zelle: 443-756-8916</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Peach Green Tea -->
-      <div class="tea-product">
-        <img src="https://i.ibb.co/MDVPDDqg/69-FF69-F1-521-F-4577-81-A1-099-BF864-C00-B.jpg" alt="Peach Green Tea" class="tea-image" />
-        <div class="tea-info">
-          <h3 class="tea-name">Peach Green Tea</h3>
-          <p class="tea-description">Juicy peach flavor blended with smooth green tea.</p>
-          <div class="tea-price">$5.50</div>
-          <div class="payment-buttons">
-            <a href="https://cash.app/$lesske" target="_blank" class="cashapp-btn">Pay with CashApp ($lesske)</a>
-            <span class="zelle-btn">Zelle: 443-756-8916</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  </main>
 
   <!-- About -->
-  <section id="about" class="about">
-    <h2 class="serif">Our Story</h2>
-    <img src="logo.png" alt="Lez Tea Logo" class="about-logo" />
-    <p>It all started during COVID when I served homemade teas to friends, and the excitement sparked a passion-driven business. Today, we’re proud to share that same magic with Baltimore.</p>
-    <a href="#contact" class="about-btn">Learn More</a>
+  <section id="about" class="section section--alt" aria-labelledby="about-title">
+    <div class="container narrow">
+      <h2 id="about-title" class="serif">Our Story</h2>
+      <img class="about__logo" src="logo.png" alt="Lez Tea round logo" />
+      <p class="muted">
+        It started during COVID sharing homemade teas with friends — the reaction sparked a passion that became Lez Tea.
+        Today, we pour that same joy into every cup for Baltimore.
+      </p>
+      <a href="#contact" class="btn btn--primary btn--pill">Contact Us</a>
+    </div>
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="contact">
-    <h2 class="serif">Contact Us</h2>
-    <p>Ready to experience Baltimore's best tea? Reach out to us directly.</p>
-    <div class="contact-box">
-      <i class="fa fa-phone contact-icon"></i>
-      <h3>Call or Text</h3>
-      <p class="contact-text">(443) 756-8916</p>
-      <a href="tel:4437568916" class="contact-btn">Call Now</a>
-      <div class="divider"></div>
-      <i class="fa fa-instagram contact-icon"></i>
-      <h3>Follow Us</h3>
-      <p class="contact-text">@leztea</p>
-      <a href="https://instagram.com/leztea" target="_blank" class="contact-btn">Follow on Instagram</a>
+  <section id="contact" class="section" aria-labelledby="contact-title">
+    <div class="container narrow">
+      <h2 id="contact-title" class="serif">Contact Us</h2>
+      <p class="muted">Call or text for orders, events, and catering.</p>
+
+      <div class="contact">
+        <div class="contact__card">
+          <i class="fa-solid fa-phone contact__icon" aria-hidden="true"></i>
+          <h3>Call / Text</h3>
+          <p class="contact__lead"><a href="tel:+14437568916" class="link-strong">443-756-8916</a></p>
+          <a href="sms:+14437568916" class="btn btn--primary btn--pill">Text Now</a>
+        </div>
+
+        <div class="contact__card">
+          <i class="fa-brands fa-instagram contact__icon" aria-hidden="true"></i>
+          <h3>Instagram</h3>
+          <p class="contact__lead">@leztea</p>
+          <a href="https://instagram.com/leztea" target="_blank" rel="noopener" class="btn btn--outline btn--pill">Follow Us</a>
+        </div>
+      </div>
+
+      <p class="fineprint">
+        Location: Baltimore, MD · Large Orders: 24 hours notice · Catering Available
+      </p>
     </div>
-    <p class="contact-note">Location: Baltimore, MD · Large Orders: 24 hours notice · Catering Available</p>
   </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer__text">© <span id="year"></span> Lez Tea — Local Pickup & Delivery in Baltimore</p>
+    </div>
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </footer>
 
 </body>
 </html>
