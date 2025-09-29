@@ -168,16 +168,31 @@
   color: var(--primary);
   margin-bottom: 10px;
 }
-.paypal-btn {
-  display: inline-block;
-  background: var(--accent);
-  color: var(--text);
+.payment-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+}
+.cashapp-btn {
+  background: #00c244;
+  color: white;
   font-weight: 600;
-  padding: 10px 20px;
-  border-radius: 25px;
+  padding: 8px 14px;
+  border-radius: 20px;
   font-size: 14px;
   text-transform: uppercase;
-  cursor: pointer;
+  transition: 0.2s;
+}
+.cashapp-btn:hover { background: #009b36; }
+.zelle-btn {
+  background: #7030a0;
+  color: white;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 14px;
+  text-transform: uppercase;
 }
 
 /* About */
@@ -248,7 +263,3 @@
   font-family: 'Young Serif', serif;
 }
 
-/* Fonts */
-.serif {
-  font-family: 'Young Serif', serif;
-}
