@@ -79,21 +79,22 @@
     /* Buttons */
     .btn{
       display:inline-flex;align-items:center;justify-content:center;
-      gap:.5rem;padding:10px 16px;border-radius:10px;
-      font-weight:700;text-decoration:none;transition:.2s ease;
+      gap:.4rem;padding:10px 16px;border-radius:8px;
+      font-weight:600;text-decoration:none;transition:.25s ease;
       border:1px solid transparent;cursor:pointer;white-space:nowrap;
+      font-size:.9rem;letter-spacing:.3px;
     }
     .btn--pill{border-radius:999px}
-    .btn--primary{background:var(--primary);color:#fff}
-    .btn--primary:hover{filter:brightness(1.05)}
-    .btn--outline{background:transparent;border-color:var(--primary);color:var(--primary)}
-    .btn--outline:hover{background:rgba(47,79,63,.06)}
-    .btn--accent{background:var(--accent);color:#111}
-    .btn--accent:hover{filter:brightness(1.03)}
-    .btn--cashapp{background:#1A1A1A;color:#fff}
-    .btn--cashapp:hover{background:#333}
-    .btn--zelle{background:#1A1A1A;color:#fff}
-    .btn--zelle:hover{background:#333}
+    .btn--primary{background:var(--primary);color:#fff;border:1px solid var(--primary)}
+    .btn--primary:hover{background:transparent;color:var(--primary)}
+    .btn--outline{background:transparent;border:1px solid var(--primary);color:var(--primary)}
+    .btn--outline:hover{background:var(--primary);color:#fff}
+    .btn--accent{background:var(--accent);color:#111;border:1px solid var(--accent)}
+    .btn--accent:hover{background:transparent;color:var(--accent)}
+    .btn--cashapp{background:transparent;border:1px solid var(--ink);color:var(--ink)}
+    .btn--cashapp:hover{background:var(--ink);color:#fff}
+    .btn--zelle{background:transparent;border:1px solid var(--ink);color:var(--ink)}
+    .btn--zelle:hover{background:var(--ink);color:#fff}
 
     /* Hero */
     .hero{position:relative;min-height:76vh;display:grid;place-items:center;text-align:center;color:#fff;background:linear-gradient(135deg, #2F4F3F 0%, #517B71 100%)}
